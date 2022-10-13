@@ -1,5 +1,5 @@
 .idea
 venv
 **/__pycache__
-spotify/.cache
-spotify/config.py
+2022_09_spotify/.cache
+2022_09_spotify/config.py
