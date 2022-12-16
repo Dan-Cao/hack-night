@@ -1,5 +1,8 @@
 import json
-import readchar
+import time
+
+import win32api
+
 from websocket import create_connection
 
 ws = None
@@ -64,18 +67,21 @@ try:
         state = ws.recv()
         render_state(state)
 
-        command = readchar.readkey()
-        match command:
-            case "w":
-                ws.send('{"command":"MoveNorth"}')
-            case "a":
-                ws.send('{"command":"MoveWest"}')
-            case "s":
-                ws.send('{"command":"MoveSouth"}')
-            case "d":
-                ws.send('{"command":"MoveEast"}')
-            case " ":
-                ws.send('{"command":"DropBomb"}')
+        next_command = '{"command": "Look"}'
+
+        if win32api.GetAsyncKeyState(ord('W')):
+            next_command = '{"command":"MoveNorth"}'
+        if win32api.GetAsyncKeyState(ord('A')):
+            next_command = '{"command":"MoveWest"}'
+        if win32api.GetAsyncKeyState(ord('S')):
+            next_command = '{"command":"MoveSouth"}'
+        if win32api.GetAsyncKeyState(ord('D')):
+            next_command = '{"command":"MoveEast"}'
+        if win32api.GetAsyncKeyState(ord(' ')):
+            next_command = '{"command":"DropBomb"}'
+
+        ws.send(next_command)
+        time.sleep(0.5)
 
 finally:
     if ws:
