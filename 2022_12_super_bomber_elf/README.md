@@ -32,3 +32,5 @@ Python client for https://github.com/krisajenkins/SuperBomberElf
 * Achieved by making the client async
 
 [a7.py](a7.py) - indicate when there is something else active under the player
+
+[a8.py](a8.py) - fix bug when there are more players than rows on screen
