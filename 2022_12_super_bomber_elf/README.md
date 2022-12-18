@@ -26,3 +26,9 @@ Python client for https://github.com/krisajenkins/SuperBomberElf
 * Also adds colours and symbols for improved readability
 
 [a5.py](a5.py) - list player scores and add differentiating symbols for each player
+
+[a6.py](a6.py) - prevent input queuing by separating game and network loops
+
+* Achieved by making the client async
+
+[a7.py](a7.py) - indicate when there is something else active under the player
