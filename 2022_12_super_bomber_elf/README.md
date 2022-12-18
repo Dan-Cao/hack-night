@@ -20,3 +20,9 @@ Python client for https://github.com/krisajenkins/SuperBomberElf
 [a3.py](a3.py) - allows the board to update independently without any input
 
 * Only works with Windows due to use of the `win32api.GetAsyncKeyState` API
+
+[a4.py](a4.py) - eliminates screen flashing by rendering using curses
+
+* Also adds colours and symbols for improved readability
+
+[a5.py](a5.py) - list player scores and add differentiating symbols for each player
